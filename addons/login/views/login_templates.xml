@@ -1,0 +1,24 @@
+<odoo>
+  <template id="login_template" inherit_id="web.login">
+    <xpath expr="//t[@t-call='web.login_layout']" position="replace">
+      <t t-call="web.login_layout">
+        <t t-set="title">Connexion ANPTIC</t>
+        <div class="container mt16" style="text-align:center;">
+          <img src="/login/static/src/img/logo.png" alt="Logo ANPTIC" style="max-width:200px; margin-bottom:20px;" />
+          <h1>Connexion personnalisée</h1>
+          <form action="/web/login" method="post" style="max-width:300px; margin:auto;">
+            <div>
+              <label>Login :</label>
+              <input type="text" name="login" required="required" style="width:100%; padding:8px; margin-bottom:10px;" />
+            </div>
+            <div>
+              <label>Mot de passe :</label>
+              <input type="password" name="password" required="required" style="width:100%; padding:8px; margin-bottom:20px;" />
+            </div>
+            <button type="submit" style="width:100%; padding:10px;">Se connecter</button>
+          </form>
+        </div>
+      </t>
+    </xpath>
+  </template>
+</odoo>
