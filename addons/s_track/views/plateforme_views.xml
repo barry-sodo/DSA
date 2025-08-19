@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>  
+<record id="view_plateforme_tree" model="ir.ui.view">
+    <field name="name">plateforme.plateforme.tree</field>
+    <field name="model">plateforme.plateforme</field>
+    <field name="arch" type="xml">
+        <list string="Liste des Plateformes">
+            <field name="name"/>
+            <field name="etat"
+                   widget="badge"
+                   decoration-primary="etat == 'active'"
+                   decoration-muted="etat == 'inactive'"/>
+        </list>
+    </field>
+</record>
+  <record id="view_plateforme_form" model="ir.ui.view">
+    <field name="name">plateforme.plateforme.form</field>
+    <field name="model">plateforme.plateforme</field>
+    <field name="arch" type="xml">
+      <form string="Plateforme" class="oe_form oe_form_fullscreen">
+<header class="custom-header-bg">
+    <field name="etat" widget="statusbar" statusbar_visible="active,inactive"/>
+    <button name="action_activer"
+            type="object"
+            string="Activer"
+            class="oe_highlight"
+            invisible="etat == 'active'"/>
+    <button name="action_desactiver"
+            type="object"
+            string="Désactiver"
+          class="btn-info"
+            invisible="etat == 'inactive'"/>
+</header>
+        <sheet>
+          <div class="oe_title">
+            <h2>
+              <field name="name" placeholder="Indiquer le nom de la plateforme"/>
+            </h2>
+          </div>
+<group string="Informations Générales" colspan="2">
+  <group col="2">
+   <group>
+<field name="structure_porteuse_ids"
+       widget="many2many_tags"
+       options="{'no_create': True}"
+       class="tag-bleu"/>
+<field name="personnel_ids"
+       widget="many2many_tags"
+       options="{'no_create': True}"
+       class="tag-bleu"/>
+    </group>
+     <group>
+      <field name="disponibilite"/>
+      <field name="conformite_normes"/>
+    </group>
+  </group>
+</group>
+          <notebook>
+            <page string="Détails Techniques">
+              <group>
+                <field name="code_source" placeholder=" le code source..."/>
+                <field name="plan_implantation" placeholder="Indiquer le plan ou la zone d'implantation"/>
+              </group>
+            </page>
+            <page string="Gouvernance">
+              <group>
+                <field name="gouvernance" />
+                <field name="perenisation" />
+              </group>
+            </page>
+            <page string="Évaluation">
+            <group col="2">
+  <group>
+    <field name="solution_proposee" placeholder="Solutions proposées..."/>
+    <field name="difficulte" placeholder="Difficultés rencontrées..."/>
+  </group>
+  <group>
+    <field name="bilan" placeholder="Bilan du projet..."/>
+    <field name="satisfaction_usagers" placeholder="Avis ou satisfaction des usagers..."/>
+  </group>
+</group>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+<record id="view_plateforme_kanban" model="ir.ui.view">
+  <field name="name">plateforme.plateforme.kanban</field>
+  <field name="model">plateforme.plateforme</field>
+  <field name="arch" type="xml">
+    <kanban>
+      <field name="name"/>
+      <field name="etat"/>
+      <templates>
+  <t t-name="kanban-box">
+    <div class="oe_kanban_global_click o_kanban_record custom-kanban-box">
+      
+      <div class="kanban-title">
+        <t t-esc="record.name.raw_value"/>
+      </div>
+      
+      <div class="kanban-badge">
+        <t t-if="record.etat.raw_value == 'active'">
+          <span class="badge badge-active">Active</span>
+        </t>
+        <t t-if="record.etat.raw_value == 'inactive'">
+          <span class="badge badge-inactive">Inactive</span>
+        </t>
+      </div>
+
+    </div>
+  </t>
+</templates>
+    </kanban>
+  </field>
+</record>
+  <record id="action_plateforme" model="ir.actions.act_window">
+    <field name="name">Plateformes</field>
+    <field name="res_model">plateforme.plateforme</field>
+    <field name="view_mode">list,kanban,form</field>
+  </record>
+  <menuitem id="menu_plateforme_root" name="Plateformes TIC"/>
+  <menuitem id="menu_plateforme_main" name="Plateformes" parent="menu_plateforme_root"/>
+  <menuitem id="menu_plateforme" name="Gérer les plateformes" parent="menu_plateforme_main" action="action_plateforme"/>
+</odoo>

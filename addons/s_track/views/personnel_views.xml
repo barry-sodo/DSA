@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_personnel_kanban" model="ir.ui.view">
+    <field name="name">personnel.personnel.kanban</field>
+    <field name="model">personnel.personnel</field>
+    <field name="arch" type="xml">
+      <kanban class="o_kanban_example">
+        <field name="name"/>
+        <field name="prenom"/>
+        <field name="direction_id"/>
+        <field name="image_1920"/>
+        <templates>
+          <t t-name="kanban-box">
+            <div class="oe_kanban_global_click o_kanban_record">
+              <div class="o_kanban_image">
+                <img t-att-src="kanban_image('personnel.personnel', 'image_1920', record.id.value)" class="img img-fluid rounded-circle" style="max-width: 64px; max-height: 64px;"/>
+              </div>
+          <div class="d-flex justify-content-center text-primary fw-bold" style="height: 40px; margin-top: 5px;">
+  <t t-esc="record.name.value"/> <t t-esc="record.prenom.value"/>
+</div>
+            <div class="position-absolute text-muted" style="bottom: 5px; right: 10px; font-size: 0.85rem;">
+              <t t-if="record.direction_id.raw_value">
+                <field name="direction_id"/>
+              </t>
+            </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+  <record id="view_personnel_tree" model="ir.ui.view">
+    <field name="name">personnel.personnel.tree</field>
+    <field name="model">personnel.personnel</field>
+    <field name="arch" type="xml">
+      <list string="Personnels">
+        <field name="matricule"/>
+        <field name="name"/>
+        <field name="prenom"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_personnel_form" model="ir.ui.view">
+    <field name="name">personnel.personnel.form</field>
+    <field name="model">personnel.personnel</field>
+    <field name="arch" type="xml">
+      <form string="Personnel">
+        <sheet>
+          <div class="oe_button_box" name="button_box"/>
+          <div class="o_group">
+            <group>
+              <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_1920'}"/>
+            </group>
+                <group col="2">
+                    <group>
+                        <field name="matricule"/>
+                        <field name="name"/>
+                        <field name="prenom"/>        
+                    </group>
+                    <group>
+                        <field name="email"/>
+                        <field name="phone"/>
+                        <field name="direction_id"/>
+                        <field name="roles" widget="selection"/>
+                    </group>
+                </group>
+          </div>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="action_personnel" model="ir.actions.act_window">
+    <field name="name">Personnels</field>
+    <field name="res_model">personnel.personnel</field>
+    <field name="view_mode">list,kanban,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Créez vos agents ici.
+      </p>
+    </field>
+  </record>
+  <menuitem id="menu_root_rh" name="Ressources Humaines" sequence="10"/>
+  <menuitem id="menu_personnel" name="Personnels" parent="menu_root_rh" action="action_personnel" sequence="20"/>
+</odoo>

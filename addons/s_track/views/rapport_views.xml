@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_form_rapport" model="ir.ui.view">
+    <field name="name">rapport.rapport.form</field>
+    <field name="model">rapport.rapport</field>
+    <field name="arch" type="xml">
+     <form string="Rapport">
+        <sheet  class="formrappo">
+         <header class="custom-header-bg">
+        </header>
+         <group col="2">
+            <field name="name" placeholder="Indiquer le libellé du Rapport"/>
+            <field name="session_id" placeholder="Sélectionnez la session"/>
+          </group>
+          <div class="rapport-contenu">
+            <h3>Contenu du rapport</h3>
+            <field name="contenu" widget="html" placeholder="Rédigez le contenu ici..."/>
+          </div>
+        </sheet>
+      </form>
+    </field>
+    </record>
+  <record id="view_list_rapport" model="ir.ui.view">
+    <field name="name">rapport.rapport.list</field>
+    <field name="model">rapport.rapport</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name"/>
+      </list>
+    </field>
+  </record>
+  <record id="action_rapport" model="ir.actions.act_window">
+    <field name="name">Rapports</field>
+    <field name="res_model">rapport.rapport</field>
+    <field name="view_mode">list,form</field>
+  </record>
+  <menuitem id="menu_rapport_root" />
+  <menuitem id="menu_rapport" name="Gérer les rapports" parent="menu_rapport_root" action="action_rapport"/>
+</odoo>

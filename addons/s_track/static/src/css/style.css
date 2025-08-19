@@ -1,0 +1,99 @@
+.o_text_limited .o_input_text {
+    max-height: 4em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}/* Style pour le texte réduit */
+.custom-header-bg {
+    background-color: #0c163dd0; /* bleu bootstrap */
+    padding: 10px;
+    color: white;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Pour être au-dessus du contenu */
+}
+.section-projet-bg {
+    background-color: #f4f3f7d0; /* bleu très clair */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.section-tache-bg {
+    background-color: #0a7ff5ed; /* bleu encore plus clair */
+    padding: 15px;
+    border-radius: 10px;
+}
+.o_form_view .tag-bleu .o_tag {
+    background-color: #007bff !important;  /* bleu bootstrap */
+    color: white !important;
+
+}
+.rapport-contenu {
+  border: 1.5px solid #0233f9f7;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fbfbfb;
+}
+.custom-kanban-box {
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  position: relative;
+  min-height: 120px;
+ 
+}
+
+.kanban-title {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+.kanban-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
+
+.badge-active {
+  background-color: #007bffcb;
+  color: white;
+  padding: 6px 12px;
+  font-weight: 600;
+  border-radius: 12px;
+  font-size: 0.9em;
+}
+
+.badge-inactive {
+  background-color: #bfcfde;
+  color: white;
+  padding: 6px 12px;
+  font-weight: 600;
+  border-radius: 12px;
+  font-size: 0.9em;
+}
+.direction-kanban-box {
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  position: relative;
+  min-height: 120px;
+}
+
+.direction-title {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #2e86de;
+  display: inline-block;
+}
+
+.direction-footer {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}

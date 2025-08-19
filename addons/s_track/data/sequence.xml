@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_personnel_matricule" model="ir.sequence">
+        <field name="name">Matricule Personnel</field>
+        <field name="code">personnel.personnel</field>
+        <field name="prefix"></field>
+        <field name="padding">5</field>
+        <field name="number_next">1</field>
+    </record>
+</odoo>
+
+

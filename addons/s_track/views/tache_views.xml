@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<record id="view_tache_form" model="ir.ui.view">
+  <field name="name">tache.tache.form</field>
+  <field name="model">tache.tache</field>
+  <field name="arch" type="xml">
+    <form string="Fiche tâche">
+ <header class="custom-header-bg">
+    <field name="etat" widget="statusbar" statusbar_visible="a_faire,en_cours,terminee"/>
+
+    <button name="action_demarrer"
+            type="object"
+            string="Démarrer"
+            class="btn-primary"
+            invisible="etat != 'a_faire'"/>
+
+    <button name="action_terminer"
+            type="object"
+            string="Terminer"
+            class="btn-success"
+            invisible="etat != 'en_cours'"/>
+
+    <button name="action_revenir_encours"
+            type="object"
+            string="Reprendre"
+          class="btn-info"
+            invisible="etat != 'terminee'"/>
+</header>
+      <sheet>
+        <group string="Planning">
+          <group col="6">
+            <field name="name"/>
+            <field name="projet_id"/>
+          </group>
+          <group col="6">
+            <field name="session_id"/>
+            <field name="date_debut"/>
+            <field name="date_fin"/>
+          </group>
+        </group>
+        <separator string=""/>
+        <group>
+          <field name="synthese_realisation" widget="text" colspan="4"
+                 placeholder="Saisir la synthèse de réalisation ici..."/>
+        </group>
+
+      </sheet>
+    </form>
+  </field>
+</record>
+<record id="view_tache_tree" model="ir.ui.view">
+  <field name="name">tache.tache.tree</field>
+  <field name="model">tache.tache</field>
+  <field name="arch" type="xml">
+    <list string="Tâches">
+
+      <field name="name"/>
+      <field name="projet_id"/>
+      <field name="date_debut"/>
+      <field name="date_fin"/>
+      <field name="etat"
+        widget="badge"
+        decoration-muted="etat == 'a_faire'"
+        decoration-primary="etat == 'en_cours'"
+        decoration-success="etat == 'terminee'"/>
+    </list>
+  </field>
+</record>
+<record id="view_tache_calendar" model="ir.ui.view">
+    <field name="name">tache.calendar</field>
+    <field name="model">tache.tache</field>
+    <field name="arch" type="xml">
+        <calendar string="Calendrier des Tâches"
+                  date_start="date_debut"
+                  date_stop="date_fin"
+                  color="etat">
+            <field name="name"/>
+        </calendar>
+    </field>
+</record>
+
+    <record id="action_tache" model="ir.actions.act_window">
+        <field name="name">Tâches</field>
+        <field name="res_model">tache.tache</field>
+        <field name="view_mode">list,calendar,form</field>
+    </record>
+    <menuitem id="menu_tache_root" name="Tâches"/>
+    <menuitem id="menu_tache" name="Tâches" parent="menu_tache_root" action="action_tache"/>
+</odoo>

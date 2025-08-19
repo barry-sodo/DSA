@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="anptic_login_footer_clean" inherit_id="web.login_layout" name="Pied de page de connexion ANPTIC nettoyé">
+            <xpath expr="//div[hasclass('text-center', 'small', 'border-top')]" position="replace">
+                <div class="text-center small mt-4 pt-3 border-top">
+                    <a href="https://anptic.gov.bf/" target="_blank" style="text-decoration: none;">Propulsé par <span style="color: #007bff;">ANPTIC</span></a>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

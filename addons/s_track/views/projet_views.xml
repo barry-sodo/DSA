@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_projet_list" model="ir.ui.view">
+    <field name="name">projet.projet.list</field>
+    <field name="model">projet.projet</field>
+    <field name="arch" type="xml">
+      <list  string="Liste des Projets">
+        <field name="name"/>
+        <field name="date_debut"/>
+        <field name="date_fin"/>
+       <field name="etat"
+        widget="badge"
+                         decoration-muted="etat == 'a_faire'"
+                         decoration-primary="etat == 'en_cours'"
+                         decoration-success="etat == 'terminee'"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_projet_form" model="ir.ui.view">
+    <field name="name">projet.projet.form</field>
+    <field name="model">projet.projet</field>
+    <field name="arch" type="xml">
+      <form string="Fiche projet">
+ <header class="custom-header-bg">
+    <field name="etat" widget="statusbar" statusbar_visible="a_faire,en_cours,terminee"/>
+
+    <button name="action_demarrer"
+            type="object"
+            string="Démarrer"
+            class="btn-primary"
+            invisible="etat != 'a_faire'"/>
+
+    <button name="action_terminer"
+            type="object"
+            string="Terminer"
+            class="btn-success"
+            invisible="etat != 'en_cours'"/>
+
+    <button name="action_revenir_encours"
+            type="object"
+            string="Reprendre"
+          class="btn-info"
+            invisible="etat != 'terminee'"/>
+</header>
+        <sheet>
+          <group class="section-projet-bg" colspan="2" >
+            <group col="6">
+              <field name="name"/>
+              <field name="description"/>
+            </group>
+            <group col="6">
+             <field name="personnel_ids" widget="many2many_tags" class="tag-bleu"/>
+              <field name="date_debut"/>
+              <field name="date_fin"/>
+            </group>
+          </group>
+          <group class="section-tache-bg" colspan="2" >
+            <notebook>
+              <page string="Tâches du projet">
+                <field name="tache_ids">
+                  <list>
+                    <field name="name"/>
+                    <field name="date_debut"/>
+                    <field name="date_fin"/>
+                    <field name="etat"/>
+                  </list>
+                </field>
+              </page>
+            </notebook>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="action_projet" model="ir.actions.act_window">
+    <field name="name">Projets</field>
+    <field name="res_model">projet.projet</field>
+    <field name="view_mode">list,form</field>
+  </record>
+  <menuitem id="menu_projet_root" name="Projets"/>
+  <menuitem id="menu_projet" name="Gérer Projets" parent="menu_projet_root" action="action_projet"/>
+</odoo>
