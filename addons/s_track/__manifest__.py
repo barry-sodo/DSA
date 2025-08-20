@@ -4,12 +4,13 @@
     'summary': 'Suivi des tâches et des plateformes',
     'author': 'ANPTIC, Burkina Faso',
     'category': 'Tools',
-    'depends': [
+    'depends': [    
     'base',
+    'spreadsheet_dashboard',
     'web',
     'mail',
     'auth_signup',
-   
+
 ],
     'data': [
            'views/signup_custom.xml',

@@ -24,4 +24,8 @@
             parent="menu_config_root" action="action_direction"/>
   <menuitem id="menu_personnel" name="Agents"
             parent="menu_config_root" action="action_personnel"/>
+
+
+
+
 </odoo>

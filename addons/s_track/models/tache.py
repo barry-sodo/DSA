@@ -14,6 +14,7 @@ class Tache(models.Model):
     domain=[('etat', '=', 'active')],  
     default=lambda self: self.env['session.session'].search([('etat', '=', 'active')], limit=1)
 )
+
     date_debut = fields.Date(string="Date de début", required=True)
     date_fin = fields.Date(string="Date de fin", required=True)
 
@@ -74,3 +75,4 @@ class Tache(models.Model):
             elif rec.session_id and rec.date_debut and rec.date_fin:
                 if (rec.date_debut < rec.session_id.date_debut) or (rec.date_fin > rec.session_id.date_fin):
                     raise ValidationError("Les dates de la tâche doivent être comprises dans la période de la session.")
+ 

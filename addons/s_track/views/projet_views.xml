@@ -72,10 +72,21 @@
       </form>
     </field>
   </record>
+
+<record id="view_projet_graph" model="ir.ui.view">
+    <field name="name">projet.projet.graph</field>
+    <field name="model">projet.projet</field>
+    <field name="arch" type="xml">
+        <graph string="Répartition des projets" type="bar">
+            <field name="etat" type="row"/>
+            <field name="id" type="measure" operator="count"/>
+        </graph>
+    </field>
+</record>
   <record id="action_projet" model="ir.actions.act_window">
     <field name="name">Projets</field>
     <field name="res_model">projet.projet</field>
-    <field name="view_mode">list,form</field>
+    <field name="view_mode">list,form,graph</field>
   </record>
   <menuitem id="menu_projet_root" name="Projets"/>
   <menuitem id="menu_projet" name="Gérer Projets" parent="menu_projet_root" action="action_projet"/>

@@ -79,10 +79,26 @@
     </field>
 </record>
 
+
+<record id="view_tache_graph" model="ir.ui.view">
+    <field name="name">tache.tache.graph</field>
+    <field name="model">tache.tache</field>
+    <field name="arch" type="xml">
+        <graph string="Graphique des tâches" type="bar">
+            <!-- Axe X : le projet -->
+            <field name="projet_id" type="row"/>
+            <!-- Axe Y : les mesures (ici le nombre de tâches) -->
+            <field name="id" type="measure" operator="count"/>
+            <!-- Optionnel : couleur selon l'état -->
+            <field name="etat" type="col"/>
+        </graph>
+    </field>
+</record>
+
     <record id="action_tache" model="ir.actions.act_window">
         <field name="name">Tâches</field>
         <field name="res_model">tache.tache</field>
-        <field name="view_mode">list,calendar,form</field>
+        <field name="view_mode">list,calendar,form,graph</field>
     </record>
     <menuitem id="menu_tache_root" name="Tâches"/>
     <menuitem id="menu_tache" name="Tâches" parent="menu_tache_root" action="action_tache"/>

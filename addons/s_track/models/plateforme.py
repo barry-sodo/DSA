@@ -46,3 +46,4 @@ class Plateforme(models.Model):
                 'views': [(False, 'form')],
                 'target': 'current',
             }
+  

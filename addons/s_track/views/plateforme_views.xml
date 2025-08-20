@@ -115,10 +115,21 @@
     </kanban>
   </field>
 </record>
+
+<record id="view_plateforme_graph" model="ir.ui.view">
+    <field name="name">plateforme.plateforme.graph</field>
+    <field name="model">plateforme.plateforme</field>
+    <field name="arch" type="xml">
+        <graph string="Statistiques des plateformes" type="bar">
+            <field name="etat" type="row"/>
+            <field name="id" type="measure" operator="count"/>
+        </graph>
+    </field>
+  </record>
   <record id="action_plateforme" model="ir.actions.act_window">
     <field name="name">Plateformes</field>
     <field name="res_model">plateforme.plateforme</field>
-    <field name="view_mode">list,kanban,form</field>
+    <field name="view_mode">list,kanban,form,graph</field>
   </record>
   <menuitem id="menu_plateforme_root" name="Plateformes TIC"/>
   <menuitem id="menu_plateforme_main" name="Plateformes" parent="menu_plateforme_root"/>
