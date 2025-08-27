@@ -37,8 +37,8 @@ class Personnel(models.Model):
                 raise ValidationError("Le numéro de téléphone doit contenir 8 chiffres.")
 
     def _assign_user_group(self, user, role):
-        agent_group = self.env.ref('s_track.group_agent')
-        chef_group = self.env.ref('s_track.group_chef_service')
+        agent_group = self.env.ref('COTAWA.group_agent')
+        chef_group = self.env.ref('COTAWA.group_chef_service')
 
         if role == 'agent':
             group = agent_group
@@ -71,7 +71,7 @@ class Personnel(models.Model):
             record._assign_user_group(record.user_id, record.roles)
 
         if record.user_id:
-            template = self.env.ref('s_track.mail_template_user_signup_custom', raise_if_not_found=False)
+            template = self.env.ref('COTAWA.mail_template_user_signup_custom', raise_if_not_found=False)
             if template:
                 user_singleton = self.env['res.users'].browse(record.user_id.id)
                 template.with_user(self.env.user).send_mail(user_singleton.id, force_send=True)
@@ -93,7 +93,7 @@ class Personnel(models.Model):
                 record.user_id = user.id
                 record._assign_user_group(user, record.roles)
 
-                template = self.env.ref('s_track.mail_template_user_signup_custom', raise_if_not_found=False)
+                template = self.env.ref('COTAWA.mail_template_user_signup_custom', raise_if_not_found=False)
                 if template:
                     user_singleton = self.env['res.users'].browse(record.user_id.id)
                     template.with_user(self.env.user).send_mail(user_singleton.id, force_send=True)

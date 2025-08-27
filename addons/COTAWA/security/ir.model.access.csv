@@ -1,12 +1,12 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_plateforme_admin,access_plateforme_admin,model_plateforme_plateforme,group_s_track_admin,1,1,1,1
-access_projet_admin,access_projet_admin,model_projet_projet,group_s_track_admin,1,1,1,1
-access_tache_admin,access_tache_admin,model_tache_tache,group_s_track_admin,1,1,1,1
-access_session_admin,access_session_admin,model_session_session,group_s_track_admin,1,1,1,1
-access_rapport_admin,access_rapport_admin,model_rapport_rapport,group_s_track_admin,1,1,1,1
-access_structure_admin,access_structure_admin,model_structure_structure,group_s_track_admin,1,1,1,1
-access_personnel_admin,access_personnel_admin,model_personnel_personnel,group_s_track_admin,1,1,1,1
-access_direction_admin,access_direction_admin,model_direction_direction,group_s_track_admin,1,1,1,1
+access_plateforme_admin,access_plateforme_admin,model_plateforme_plateforme,group_COTAWA_admin,1,1,1,1
+access_projet_admin,access_projet_admin,model_projet_projet,group_COTAWA_admin,1,1,1,1
+access_tache_admin,access_tache_admin,model_tache_tache,group_COTAWA_admin,1,1,1,1
+access_session_admin,access_session_admin,model_session_session,group_COTAWA_admin,1,1,1,1
+access_rapport_admin,access_rapport_admin,model_rapport_rapport,group_COTAWA_admin,1,1,1,1
+access_structure_admin,access_structure_admin,model_structure_structure,group_COTAWA_admin,1,1,1,1
+access_personnel_admin,access_personnel_admin,model_personnel_personnel,group_COTAWA_admin,1,1,1,1
+access_direction_admin,access_direction_admin,model_direction_direction,group_COTAWA_admin,1,1,1,1
 
 access_plateforme_chef_service,access_plateforme_chef_service,model_plateforme_plateforme,group_chef_service,1,1,1,1
 access_projet_chef_service,access_projet_chef_service,model_projet_projet,group_chef_service,1,1,1,1

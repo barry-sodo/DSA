@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <menuitem id="s_track_menu_root" name="S-Track"/>
+    <menuitem id="s_track_menu_root" name="COTAWA"/> 
 
    <menuitem id="menu_plateforme" name="Plateformes"
             parent="s_track_menu_root" action="action_plateforme"/>
@@ -24,8 +24,4 @@
             parent="menu_config_root" action="action_direction"/>
   <menuitem id="menu_personnel" name="Agents"
             parent="menu_config_root" action="action_personnel"/>
-
-
-
-
 </odoo>

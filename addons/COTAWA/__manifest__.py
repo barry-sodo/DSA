@@ -1,12 +1,11 @@
 {
-    'name': 'S-Track',
+    'name': 'COTAWA',
     'version': '1.0',
     'summary': 'Suivi des tâches et des plateformes',
     'author': 'ANPTIC, Burkina Faso',
     'category': 'Tools',
     'depends': [    
     'base',
-    'spreadsheet_dashboard',
     'web',
     'mail',
     'auth_signup',
@@ -30,10 +29,14 @@
     ],
     'assets': {
         'web.assets_backend': [
-        's_track/static/src/css/style.css',
+        'COTAWA/static/src/css/style.css',
      
           
         ],
     },
-    'application': True,
+ 'images': ['static/description/icon.png'],  # ← assure-toi que c'est correct
+'application': True,
+'installable': True,
+
+    
 }
