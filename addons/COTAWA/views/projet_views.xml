@@ -33,13 +33,13 @@
     <button name="action_terminer"
             type="object"
             string="Terminer"
-            class="btn-success"
+            class="btn-danger"
             invisible="etat != 'en_cours'"/>
 
     <button name="action_revenir_encours"
             type="object"
             string="Reprendre"
-          class="btn-info"
+          class="btn-success"
             invisible="etat != 'terminee'"/>
 </header>
         <sheet>

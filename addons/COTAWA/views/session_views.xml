@@ -15,7 +15,7 @@
     <button name="action_desactiver"
             type="object"
             string="Désactiver"
-         class="btn-info"
+         class="btn-danger"
             invisible="etat == 'inactive'"/>
 </header>
             <sheet class="sheet-rounded-blue">

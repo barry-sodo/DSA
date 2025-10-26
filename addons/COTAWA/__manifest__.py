@@ -1,7 +1,7 @@
 {
     'name': 'COTAWA',
     'version': '1.0',
-    'summary': 'Suivi des tâches et des plateformes',
+    'summary': 'Suivi des Projets et des plateformes',
     'author': 'ANPTIC, Burkina Faso',
     'category': 'Tools',
     'depends': [    
@@ -20,7 +20,7 @@
     'views/plateforme_views.xml',
     'views/session_views.xml',
     'views/projet_views.xml',
-    'views/tache_views.xml',
+    'views/tache_views.xml', 
     'views/rapport_views.xml',
     'views/structure_views.xml',
     'views/personnel_views.xml',
@@ -30,11 +30,10 @@
     'assets': {
         'web.assets_backend': [
         'COTAWA/static/src/css/style.css',
-     
-          
+      
         ],
     },
- 'images': ['static/description/icon.png'],  # ← assure-toi que c'est correct
+
 'application': True,
 'installable': True,
 

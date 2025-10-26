@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <menuitem id="s_track_menu_root" name="COTAWA"/> 
+    <!-- Menu racine -->
+    <menuitem id="s_track_menu_root"
+        name="COTAWA"
+        web_icon="COTAWA,static/description/icon.png"
+        sequence="30"/>
 
-   <menuitem id="menu_plateforme" name="Plateformes"
-            parent="s_track_menu_root" action="action_plateforme"/>
+    <!-- Sous-menus -->
+    <menuitem id="menu_plateforme" name="Plateformes"
+        parent="s_track_menu_root" action="action_plateforme"/>
 
-            <menuitem id="menu_projet" name="Projets"
-            parent="s_track_menu_root" action="action_projet"/>
-  <menuitem id="menu_config_root" name="Configuration"
-            parent="s_track_menu_root" sequence="20"/>
-        <menuitem id="menu_session" name="Sessions"
-            parent="s_track_menu_root" action="action_session"/>
+    <menuitem id="menu_projet" name="Projets"
+        parent="s_track_menu_root" action="action_projet"/>
 
-<menuitem id="menu_rapport" name="Rapports"
-            parent="s_track_menu_root" action="action_rapport"/>
-<menuitem id="menu_tache" name="Tâches"
-            parent="s_track_menu_root" action="action_tache"/>
+    <menuitem id="menu_config_root" name="Configuration"
+        parent="s_track_menu_root" sequence="20"/>
 
-  <menuitem id="menu_structure" name="Structure Metier Porteuse"
-            parent="menu_config_root" action="action_structure"/>
+    <menuitem id="menu_session" name="Sessions"
+        parent="s_track_menu_root" action="action_session"/>
 
-  <menuitem id="menu_direction" name="Directions"
-            parent="menu_config_root" action="action_direction"/>
-  <menuitem id="menu_personnel" name="Agents"
-            parent="menu_config_root" action="action_personnel"/>
+    <menuitem id="menu_rapport" name="Rapports"
+        parent="s_track_menu_root" action="action_rapport"/>
+
+    <menuitem id="menu_tache" name="Tâches"
+        parent="s_track_menu_root" action="action_tache"/>
+
+    <!-- Sous-menus de configuration -->
+    <menuitem id="menu_structure" name="Structure Metier Porteuse"
+        parent="menu_config_root" action="action_structure"/>
+
+    <menuitem id="menu_direction" name="Directions"
+        parent="menu_config_root" action="action_direction"/>
+
+    <menuitem id="menu_personnel" name="Agents"
+        parent="menu_config_root" action="action_personnel"/>
 </odoo>

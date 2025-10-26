@@ -18,6 +18,7 @@ class Plateforme(models.Model):
     difficulte = fields.Text(string="Difficultés")
     solution_proposee = fields.Text(string="Solution proposée")
     satisfaction_usagers = fields.Text(string="Satisfaction des usagers")
+    description = fields.Text(string="Description")
     etat = fields.Selection([
         ('active', 'Actif'),
         ('inactive', 'Inactif'),

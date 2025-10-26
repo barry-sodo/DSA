@@ -28,7 +28,7 @@
     <button name="action_desactiver"
             type="object"
             string="Désactiver"
-          class="btn-info"
+          class="btn-danger"
             invisible="etat == 'inactive'"/>
 </header>
         <sheet>
@@ -36,6 +36,7 @@
             <h2>
               <field name="name" placeholder="Indiquer le nom de la plateforme"/>
             </h2>
+                <field name="description"  placeholder="Description"/> 
           </div>
 <group string="Informations Générales" colspan="2">
   <group col="2">
